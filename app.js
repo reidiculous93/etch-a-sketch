@@ -1,35 +1,33 @@
 const container = document.querySelector('#container');
 const btn = document.querySelector('#clear');
 
-function gridPrompt() {
-    let userGrid = prompt("How many squares per side would you like in your grid?");
-    for(let i = 0; i < userGrid; i++){
-        const div = document.createElement("div");
-        div.style.width = "100px";
-        div.style.height = "100px";
-        div.style.background = "black";
-        div.classList.add("child");
-        
-        container.appendChild(div);
-        }
-}
+window.addEventListener("load", createGrid(16));
 
-for(let i = 0; i < 256; i++){
+function createGrid(size){
+container.style.gridTemplateColumns = `repeat(${size}, 1fr)`;
+for(let i = 0; i < size * size; i++){
 const div = document.createElement("div");
 div.classList.add("child");
 container.appendChild(div);
 }
+}
 
-const divs = document.querySelectorAll('.child');
-divs.forEach((div) => {
-    div.addEventListener('mouseover', () => {
-        div.classList.add('childHover');
+function resizeGrid(){
+let resize = prompt("How many squares per column and row?");
+resize = parseInt(resize);
+createGrid(resize);
+}
+
+const gridItems = document.querySelectorAll('.child');
+gridItems.forEach((item) => {
+    item.addEventListener('mouseover', () => {
+        item.classList.add('childHover');
     })  
 });
 
 btn.addEventListener('click', () => {
-    divs.forEach((div) => {
-            div.classList.remove('childHover');
-        }) 
-    gridPrompt();
+    gridItems.forEach((item) => {
+            container.removeChild(item);
+        });
+    resizeGrid();
 });
