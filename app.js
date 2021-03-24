@@ -9,23 +9,28 @@ for(let i = 0; i < size * size; i++){
 const div = document.createElement("div");
 div.classList.add("child");
 container.appendChild(div);
-}
-}
+div.addEventListener('mouseover', () => {
+    let r = Math.floor(Math.random() * 255);
+    let g = Math.floor(Math.random() * 255);
+    let b = Math.floor(Math.random() * 255);
+    let color = "rgb("+r+","+g+","+b+")"
+    div.style.backgroundColor =  `${color}`;
+});  
+};
+};
 
 function resizeGrid(){
 let resize = prompt("How many squares per column and row?");
 resize = parseInt(resize);
+if(resize != null && resize < 100){
 createGrid(resize);
+} else {
+    alert("Please enter number less than 100!");  
+} 
 }
 
-const gridItems = document.querySelectorAll('.child');
-gridItems.forEach((item) => {
-    item.addEventListener('mouseover', () => {
-        item.classList.add('childHover');
-    })  
-});
-
 btn.addEventListener('click', () => {
+    const gridItems = document.querySelectorAll('.child');
     gridItems.forEach((item) => {
             container.removeChild(item);
         });

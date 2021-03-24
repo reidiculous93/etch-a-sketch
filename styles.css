@@ -32,7 +32,10 @@ button {
 }
 
 @keyframes colorChange {
+  0% {
+    opacity: 0.1;
+  }
   100% {
-    background: black;
+    opacity: 1;
   }
 }
