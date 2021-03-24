@@ -1,0 +1,28 @@
+#container {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+button {
+  margin: 0 0 0 800px;
+  height: 40px;
+  top: 50%;
+}
+
+.child {
+  /* flex: 1 0 6.25; */
+  margin: 6.25px;
+}
+
+.childHover {
+  animation-name: colorChange;
+  animation-duration: 0.5s;
+  animation-fill-mode: forwards;
+}
+
+@keyframes colorChange {
+  100% {
+    background: #fff;
+  }
+}
