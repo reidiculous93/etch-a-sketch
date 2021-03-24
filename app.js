@@ -16,11 +16,7 @@ function gridPrompt() {
 
 for(let i = 0; i < 256; i++){
 const div = document.createElement("div");
-div.style.width = "100px";
-div.style.height = "100px";
-div.style.background = "black";
 div.classList.add("child");
-
 container.appendChild(div);
 }
 
