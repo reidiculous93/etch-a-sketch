@@ -25,7 +25,8 @@ resize = parseInt(resize);
 if(resize != null && resize < 100){
 createGrid(resize);
 } else {
-    alert("Please enter number less than 100!");  
+    createGrid(16);
+    alert("Please enter a valid number less than 100!");
 } 
 }
 
